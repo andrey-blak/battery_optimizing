@@ -1,0 +1,39 @@
+
+  # CONNECTIVITY
+wi fi
+2g
+3g
+LTE
+
+roaming
+
+
+  # CHARGING
+
+  # BATTERY LEVEL
+
+  # DOCKING
+
+The dock-state details are included as an extra in a sticky broadcast of the ACTION_DOCK_EVENT action. 
+Because it's sticky, you don't need to register a BroadcastReceiver. 
+You can simply call registerReceiver() passing in null as the broadcast receiver as shown in the next snippet.
+
+IntentFilter ifilter = new IntentFilter(Intent.ACTION_DOCK_EVENT);
+Intent dockStatus = context.registerReceiver(null, ifilter);
+int dockState = battery.getIntExtra(EXTRA_DOCK_STATE, -1);
+boolean isDocked = dockState != Intent.EXTRA_DOCK_STATE_UNDOCKED;
+
+boolean isCar = dockState == EXTRA_DOCK_STATE_CAR;
+boolean isDesk = dockState == EXTRA_DOCK_STATE_DESK || 
+                 dockState == EXTRA_DOCK_STATE_LE_DESK ||
+                 dockState == EXTRA_DOCK_STATE_HE_DESK;
+
+
+UNDOCKED = 0;
+DESK = 1;
+CAR = 2;
+
+adb shell am broadcast -a android.intent.action.DOCK_EVENT --ei android.intent.extra.DOCK_STATE 0
+adb shell am broadcast -a android.intent.action.DOCK_EVENT --ei android.intent.extra.DOCK_STATE 1
+adb shell am broadcast -a android.intent.action.DOCK_EVENT --ei android.intent.extra.DOCK_STATE 2
+
