@@ -44,4 +44,6 @@ dependencies {
 
     // robospice
     compile 'com.octo.android.robospice:robospice:1.4.11'
+
+    compile files("libs/android_framework.jar")
 }

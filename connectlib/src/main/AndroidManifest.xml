@@ -25,6 +25,12 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ConnectionActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".robo.SampleSpiceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
