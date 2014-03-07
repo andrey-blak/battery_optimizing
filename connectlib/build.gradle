@@ -25,6 +25,16 @@ android {
         minSdkVersion 7
         targetSdkVersion 19
     }
+
+    productFlavors {
+        production {
+            packageName "blak.android.connectlib"
+        }
+
+        stage {
+            packageName "blak.android.connectlib.stage"
+        }
+    }
 }
 
 dependencies {
