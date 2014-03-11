@@ -1,15 +1,16 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
     package="blak.android.connectlib"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:versionCode="1"
     android:versionName="1.0">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
     <uses-sdk
         android:minSdkVersion="7"
-        android:targetSdkVersion="19" />
+        android:targetSdkVersion="19"/>
 
     <application
         android:allowBackup="true"
@@ -17,37 +18,47 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".sample.MainActivity"
             android:label="ConnectLib">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <activity android:name=".ConnectionActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
+        <!--Receivers-->
 
-        <activity android:name=".battery.BatteryActivity">
+        <receiver android:name=".receivers.ConnectivityReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
             </intent-filter>
-        </activity>
+        </receiver>
 
-        <activity android:name=".docking.DockingActivity">
+        <receiver android:name=".receivers.PowerConnectReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
             </intent-filter>
-        </activity>
+        </receiver>
+
+        <receiver android:name=".receivers.BatterySignificantReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receivers.DockingReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOCK_EVENT"/>
+            </intent-filter>
+        </receiver>
 
         <!--Robospice-->
 
         <activity android:name=".sample.robo.SampleSpiceActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
 

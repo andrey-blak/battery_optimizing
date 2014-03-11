@@ -1,4 +1,4 @@
-package blak.android.connectlib;
+package blak.android.connectlib.sample;
 
 import android.app.Activity;
 import android.os.Bundle;
