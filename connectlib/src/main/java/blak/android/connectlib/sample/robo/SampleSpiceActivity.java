@@ -1,4 +1,4 @@
-package blak.android.connectlib.robo;
+package blak.android.connectlib.sample.robo;
 
 import blak.android.connectlib.R;
 import com.octo.android.robospice.persistence.DurationInMillis;

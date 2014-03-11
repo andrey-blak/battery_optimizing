@@ -1,4 +1,4 @@
-package blak.android.connectlib.robo;
+package blak.android.connectlib.sample.robo;
 
 import com.octo.android.robospice.SpiceManager;
 

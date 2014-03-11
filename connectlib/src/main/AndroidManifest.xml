@@ -45,15 +45,15 @@
 
         <!--Robospice-->
 
-        <activity android:name=".robo.SampleSpiceActivity">
+        <activity android:name=".sample.robo.SampleSpiceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
 
         <service
-            android:name=".robo.SampleSpiceService"
-            android:exported="false" />
+            android:name=".sample.robo.SampleSpiceService"
+            android:exported="false"/>
 
     </application>
 
