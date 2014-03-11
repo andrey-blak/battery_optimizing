@@ -37,6 +37,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".docking.DockingActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <!--Robospice-->
+
         <activity android:name=".robo.SampleSpiceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
