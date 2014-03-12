@@ -2,6 +2,7 @@ package blak.android.connectlib;
 
 import blak.android.connectlib.internal.BatteryLevel;
 import blak.android.connectlib.internal.ChargingType;
+import blak.android.connectlib.internal.ConnectivityUtils;
 import blak.android.connectlib.internal.DockingState;
 import blak.android.connectlib.internal.NetworkType;
 import blak.android.connectlib.receivers.BatterySignificantReceiver;
@@ -12,7 +13,11 @@ import blak.android.utils.SimpleMessage;
 
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.text.TextUtils;
 
 import java.util.ArrayList;
@@ -23,6 +28,34 @@ public class NetworkDispatcher {
     private ChargingType mChargingType;
     private BatteryLevel mBatteryLevel;
     private DockingState mDockingState;
+
+    public NetworkDispatcher(Context context) {
+        mNetworkType = getInitNetworkType(context);
+        mChargingType = getInitChargingType(context);
+        mBatteryLevel = getInitBatteryLevel();
+        mDockingState = getInitDockingState(context);
+
+        stateChanged("init");
+    }
+
+    private static NetworkType getInitNetworkType(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return ConnectivityUtils.getNetworkType(activeNetwork);
+    }
+
+    private static ChargingType getInitChargingType(Context context) {
+        return ConnectivityUtils.getChargingStatus(context);
+    }
+
+    private static BatteryLevel getInitBatteryLevel() {
+        return BatteryLevel.OK;
+    }
+
+    private static DockingState getInitDockingState(Context context) {
+        Intent intent = context.registerReceiver(null, new IntentFilter(Intent.ACTION_DOCK_EVENT));
+        return ConnectivityUtils.getDockingState(intent);
+    }
 
     public void onNetworkTypeChange(Context context, NetworkType networkType) {
         mNetworkType = networkType;

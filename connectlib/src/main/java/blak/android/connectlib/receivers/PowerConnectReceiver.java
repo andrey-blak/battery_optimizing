@@ -12,7 +12,7 @@ import android.content.Intent;
 public class PowerConnectReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        ChargingType chargingType = ConnectivityUtils.getChargingType(context, intent);
+        ChargingType chargingType = ConnectivityUtils.getChargingStatus(context);
         NetworkDispatcher networkDispatcher = ConnectApplication.getInstance().getNetworkDispatcher();
         networkDispatcher.onChargingConnected(chargingType);
     }

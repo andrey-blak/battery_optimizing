@@ -9,6 +9,7 @@ import android.os.BatteryManager;
 
 public class ConnectivityUtils {
     private static final int NONE = -1;
+    private static final int BATTERY_PLUGGED_NONE = 0;
 
     public static NetworkType getNetworkType(NetworkInfo activeNetwork) {
         if ((activeNetwork == null) || !activeNetwork.isConnectedOrConnecting()) {
@@ -43,30 +44,13 @@ public class ConnectivityUtils {
         throw new IllegalArgumentException();
     }
 
-    public static ChargingType getChargingType(Context context, Intent intent) {
-        boolean isDisconnected = !isPowerConnected(intent);
-        if (isDisconnected) {
-            return ChargingType.NONE;
-        }
-
+    public static ChargingType getChargingStatus(Context context) {
         Intent batteryStatusIntent = context.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-        return getChargingType(batteryStatusIntent);
-    }
-
-    private static boolean isPowerConnected(Intent intent) {
-        String action = intent.getAction();
-        if (action.equals(Intent.ACTION_POWER_CONNECTED)) {
-            return true;
-        }
-        if (action.equals(Intent.ACTION_POWER_DISCONNECTED)) {
-            return false;
-        }
-        throw new IllegalArgumentException();
-    }
-
-    private static ChargingType getChargingType(Intent batteryStatusIntent) {
-        int chargePlug = batteryStatusIntent.getIntExtra(BatteryManager.EXTRA_PLUGGED, NONE);
+        int chargePlug = batteryStatusIntent.getIntExtra(BatteryManager.EXTRA_PLUGGED, BATTERY_PLUGGED_NONE);
         switch (chargePlug) {
+            case BATTERY_PLUGGED_NONE:
+                return ChargingType.NONE;
+
             case BatteryManager.BATTERY_PLUGGED_USB:
                 return ChargingType.USB;
 
@@ -79,6 +63,9 @@ public class ConnectivityUtils {
     }
 
     public static DockingState getDockingState(Intent intent) {
+        if (intent == null) {
+            return DockingState.UNDOCKED;
+        }
         int dockState = intent.getIntExtra(Intent.EXTRA_DOCK_STATE, NONE);
         switch (dockState) {
             case Intent.EXTRA_DOCK_STATE_UNDOCKED:

@@ -12,10 +12,6 @@ import android.content.Intent;
 public class DockingReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (intent == null) {
-            return;
-        }
-
         DockingState dockingState = ConnectivityUtils.getDockingState(intent);
         NetworkDispatcher networkDispatcher = ConnectApplication.getInstance().getNetworkDispatcher();
         networkDispatcher.onDockingChange(dockingState);

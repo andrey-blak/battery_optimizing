@@ -13,8 +13,7 @@ public class ConnectApplication extends Application {
 
         sInstance = this;
 
-        //mNetworkDispatcher = new NetworkDispatcher(getApplicationContext());
-        mNetworkDispatcher = new NetworkDispatcher();
+        mNetworkDispatcher = new NetworkDispatcher(getApplicationContext());
     }
 
     public static ConnectApplication getInstance() {
