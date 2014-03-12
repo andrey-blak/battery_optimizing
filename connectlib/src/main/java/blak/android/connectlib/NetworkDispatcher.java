@@ -1,5 +1,9 @@
 package blak.android.connectlib;
 
+import blak.android.connectlib.internal.BatteryLevel;
+import blak.android.connectlib.internal.ChargingType;
+import blak.android.connectlib.internal.DockingState;
+import blak.android.connectlib.internal.NetworkType;
 import blak.android.connectlib.receivers.BatterySignificantReceiver;
 import blak.android.connectlib.receivers.DockingReceiver;
 import blak.android.connectlib.receivers.PowerConnectReceiver;

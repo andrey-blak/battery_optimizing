@@ -1,9 +1,9 @@
 package blak.android.connectlib.receivers;
 
 import blak.android.connectlib.ConnectApplication;
-import blak.android.connectlib.ConnectivityUtils;
+import blak.android.connectlib.internal.ConnectivityUtils;
 import blak.android.connectlib.NetworkDispatcher;
-import blak.android.connectlib.NetworkType;
+import blak.android.connectlib.internal.NetworkType;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

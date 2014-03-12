@@ -1,4 +1,4 @@
-package blak.android.connectlib;
+package blak.android.connectlib.internal;
 
 import android.content.Context;
 import android.content.Intent;
@@ -44,8 +44,8 @@ public class ConnectivityUtils {
     }
 
     public static ChargingType getChargingType(Context context, Intent intent) {
-        boolean isConnected = isPowerConnected(intent);
-        if (!isConnected) {
+        boolean isDisconnected = !isPowerConnected(intent);
+        if (isDisconnected) {
             return ChargingType.NONE;
         }
 
