@@ -1,25 +1,40 @@
 
+telnet localhost 5554
+
   # CONNECTIVITY
 wifi
 mobile
-
 roaming
 
+gsm data on
+gsm data off
+gsm data roaming
+
+wifi - not supported on emulator
+
   # CHARGING
-+
 connect / disconnect
+ac / usb
+
+usb - not supported on emulator
+
+power ac on
+power ac off
 
   # BATTERY LEVEL
-+
 low / ok
 
+power capacity 0-100
+
   # DOCKING
-+
+adb shell am broadcast -a android.intent.action.DOCK_EVENT --ei android.intent.extra.DOCK_STATE 0
+adb shell am broadcast -a android.intent.action.DOCK_EVENT --ei android.intent.extra.DOCK_STATE 1
+adb shell am broadcast -a android.intent.action.DOCK_EVENT --ei android.intent.extra.DOCK_STATE 2
+
 UNDOCKED = 0;
 DESK = 1;
 CAR = 2;
 
-adb shell am broadcast -a android.intent.action.DOCK_EVENT --ei android.intent.extra.DOCK_STATE 0
-adb shell am broadcast -a android.intent.action.DOCK_EVENT --ei android.intent.extra.DOCK_STATE 1
-adb shell am broadcast -a android.intent.action.DOCK_EVENT --ei android.intent.extra.DOCK_STATE 2
+
+add tests
 
