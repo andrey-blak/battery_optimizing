@@ -1,6 +1,6 @@
 package blak.android.connectlib.sample.robo;
 
-import blak.android.connectlib.R;
+import blak.android.connectlib.sample.R;
 import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;

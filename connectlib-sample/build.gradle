@@ -6,7 +6,7 @@ buildscript {
         classpath 'com.android.tools.build:gradle:0.6.+'
     }
 }
-apply plugin: 'android-library'
+apply plugin: 'android'
 
 repositories {
     mavenCentral()
@@ -28,12 +28,5 @@ android {
 }
 
 dependencies {
-    // support
-    compile 'com.android.support:support-v4:+'
-    compile 'com.android.support:appcompat-v7:+'
-
-    // robospice
-    compile 'com.octo.android.robospice:robospice:1.4.11'
-
-    compile files("libs/android_framework.jar")
+    compile project(':connectlib')
 }

@@ -1,0 +1,71 @@
+<manifest
+    package="blak.android.connectlib.sample"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="19"/>
+
+    <application
+        android:name="blak.android.connectlib.ConnectApplication"
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!--Receivers-->
+
+        <receiver android:name="blak.android.connectlib.receivers.ConnectivityReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="blak.android.connectlib.receivers.PowerConnectReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="blak.android.connectlib.receivers.BatterySignificantReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="blak.android.connectlib.receivers.DockingReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOCK_EVENT"/>
+            </intent-filter>
+        </receiver>
+
+        <!--Robospice-->
+
+        <activity android:name="blak.android.connectlib.sample.robo.SampleSpiceActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="blak.android.connectlib.sample.robo.SampleSpiceService"
+            android:exported="false"/>
+
+    </application>
+
+</manifest>

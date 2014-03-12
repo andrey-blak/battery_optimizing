@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ConnectLib</string>
+    <string name="app_name">ConnectLib Sample</string>
 
     <string name="textview_text">textview</string>
     <string name="textview_image">image</string>
