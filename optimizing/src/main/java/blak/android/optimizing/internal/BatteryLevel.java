@@ -1,4 +1,4 @@
-package blak.android.connectlib.internal;
+package blak.android.optimizing.internal;
 
 public enum BatteryLevel {
     OK, LOW,

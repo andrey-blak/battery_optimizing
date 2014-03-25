@@ -1,13 +1,13 @@
-package blak.android.connectlib;
+package blak.android.optimizing;
 
-import blak.android.connectlib.internal.BatteryLevel;
-import blak.android.connectlib.internal.ChargingType;
-import blak.android.connectlib.internal.ConnectivityUtils;
-import blak.android.connectlib.internal.DockingState;
-import blak.android.connectlib.internal.NetworkType;
-import blak.android.connectlib.receivers.BatterySignificantReceiver;
-import blak.android.connectlib.receivers.DockingReceiver;
-import blak.android.connectlib.receivers.PowerConnectReceiver;
+import blak.android.optimizing.internal.BatteryLevel;
+import blak.android.optimizing.internal.ChargingType;
+import blak.android.optimizing.internal.ConnectivityUtils;
+import blak.android.optimizing.internal.DockingState;
+import blak.android.optimizing.internal.NetworkType;
+import blak.android.optimizing.receivers.BatterySignificantReceiver;
+import blak.android.optimizing.receivers.DockingReceiver;
+import blak.android.optimizing.receivers.PowerConnectReceiver;
 import blak.android.utils.MyLog;
 import blak.android.utils.SimpleMessage;
 

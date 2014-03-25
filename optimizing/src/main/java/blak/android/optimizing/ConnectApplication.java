@@ -1,4 +1,4 @@
-package blak.android.connectlib;
+package blak.android.optimizing;
 
 import android.app.Application;
 

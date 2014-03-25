@@ -1,4 +1,4 @@
-package blak.android.connectlib.internal;
+package blak.android.optimizing.internal;
 
 import android.content.Context;
 import android.content.Intent;

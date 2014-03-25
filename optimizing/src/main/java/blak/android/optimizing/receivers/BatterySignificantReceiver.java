@@ -1,9 +1,9 @@
-package blak.android.connectlib.receivers;
+package blak.android.optimizing.receivers;
 
-import blak.android.connectlib.internal.BatteryLevel;
-import blak.android.connectlib.ConnectApplication;
-import blak.android.connectlib.internal.ConnectivityUtils;
-import blak.android.connectlib.NetworkDispatcher;
+import blak.android.optimizing.internal.BatteryLevel;
+import blak.android.optimizing.ConnectApplication;
+import blak.android.optimizing.internal.ConnectivityUtils;
+import blak.android.optimizing.NetworkDispatcher;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
